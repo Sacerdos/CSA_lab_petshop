@@ -14,36 +14,36 @@ public class AnimalController {
     AnimalRepository mAnimalRepository;
     @GetMapping("/")
     public String getString() {
-        return "Hello, its CSA project pet shop in Docker by Ilya Dychkov IKBO-04-17";
+        return "Hello, its CSA project petshop in Docker by Ilya Dychkov IKBO-04-17";
     }
-    @GetMapping("/animals")
+    @GetMapping("/petshop")
     public List getAllNotes() {
 
         return mAnimalRepository.findAll();
     }
 
-    @PostMapping("/animals")
+    @PostMapping("/petshop")
     public Animal createNote(@Valid @RequestBody Animal animal) {
         return mAnimalRepository.save(animal);
     }
 
-    @GetMapping("/animals/id={id}")
+    @GetMapping("/petshop/id={id}")
     public Animal getNoteById(@PathVariable(value = "id") Integer id) throws AnimalNotFoundException {
         return mAnimalRepository.findById(id)
                 .orElseThrow(() -> new AnimalNotFoundException(id));
     }
 
-    @GetMapping("/animals/kind={kind}")
+    @GetMapping("/petshop/kind={kind}")
     public List<Animal> getByType(@PathVariable(value = "kind") String kind) {
         return mAnimalRepository.findAllByKind(kind);
     }
 
-    @GetMapping("/animals/name={name}")
+    @GetMapping("/petshop/name={name}")
     public List<Animal> getByName(@PathVariable(value = "name") String name) {
         return mAnimalRepository.findAllByNameContaining(name);
     }
 
-    @PutMapping("/animals/id={id}")
+    @PutMapping("/petshop/id={id}")
     public Animal updateNote(@PathVariable(value = "id") Integer id,
                              @Valid @RequestBody Animal animalDetails) throws AnimalNotFoundException {
 
@@ -56,7 +56,7 @@ public class AnimalController {
         return mAnimalRepository.save(animal);
     }
 
-    @DeleteMapping("/animals/{id}")
+    @DeleteMapping("/petshop/id={id}")
     public ResponseEntity deleteAnimal(@PathVariable(value = "id") Integer id) throws AnimalNotFoundException {
         Animal animal = mAnimalRepository.findById(id)
                 .orElseThrow(() -> new AnimalNotFoundException(id));

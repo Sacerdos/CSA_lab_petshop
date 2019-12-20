@@ -23,6 +23,22 @@ public class Animal {
         super();
     }
 
+    public Animal(int id, String name, String kind, int price) {
+        super();
+        this.id=id;
+        this.name = name;
+        this.kind = kind;
+        this.price = price;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
