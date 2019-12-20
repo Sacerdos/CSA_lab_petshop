@@ -1,5 +1,5 @@
 FROM postgres:9.3
-ENV POSTGRES_USER postgres
-ENV POSTGRES_PASSWORD password
-ENV POSTGRES_DB testdb
+ENV POSTGRES_USER indychkov
+ENV POSTGRES_PASSWORD admin
+ENV POSTGRES_DB csaproject
 ADD CreateDB.sql /docker-entrypoint-initdb.d/

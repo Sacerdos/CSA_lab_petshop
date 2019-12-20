@@ -9,8 +9,8 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>me.indychkov</groupId>
-    <artifactId>demo</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <artifactId>csa-petshop-docker</artifactId>
+    <version>final</version>
     <name>CSA</name>
     <description>CSA project for Spring Boot</description>
 

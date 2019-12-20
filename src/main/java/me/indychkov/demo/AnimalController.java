@@ -14,7 +14,7 @@ public class AnimalController {
     AnimalRepository mAnimalRepository;
     @GetMapping("/")
     public String getString() {
-        return "Hello";
+        return "Hello, its CSA project pet shop in Docker by Ilya Dychkov IKBO-04-17";
     }
     @GetMapping("/animals")
     public List getAllNotes() {
@@ -27,7 +27,7 @@ public class AnimalController {
         return mAnimalRepository.save(animal);
     }
 
-    @GetMapping("/animals/{id}")
+    @GetMapping("/animals/id={id}")
     public Animal getNoteById(@PathVariable(value = "id") Integer id) throws AnimalNotFoundException {
         return mAnimalRepository.findById(id)
                 .orElseThrow(() -> new AnimalNotFoundException(id));
@@ -43,7 +43,7 @@ public class AnimalController {
         return mAnimalRepository.findAllByNameContaining(name);
     }
 
-    @PutMapping("/animals/{id}")
+    @PutMapping("/animals/id={id}")
     public Animal updateNote(@PathVariable(value = "id") Integer id,
                              @Valid @RequestBody Animal animalDetails) throws AnimalNotFoundException {
 
@@ -53,9 +53,7 @@ public class AnimalController {
         animal.setName(animalDetails.getName());
         animal.setKind(animalDetails.getKind());
         animal.setPrice(animalDetails.getPrice());
-
-        Animal updatedAnimal = mAnimalRepository.save(animal);
-        return updatedAnimal;
+        return mAnimalRepository.save(animal);
     }
 
     @DeleteMapping("/animals/{id}")

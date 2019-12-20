@@ -1,7 +1,7 @@
 version: "3"
 services:
   postgres:
-    image: sacerdos/mypostgres:latest
+    image: sacerdos/csapostgres:latest
     #build: ./sql/
     network_mode: bridge
     #container_name: postgres
@@ -10,15 +10,15 @@ services:
     ports:
       - 5432:5432
     volumes:
-         - pgdata:/var/lib/postgresql/data    
+         - postgresdata:/var/lib/postgresql/data    
     environment:
-         - POSTGRES_PASSWORD=password
-         - POSTGRES_USER=postgres
-         - POSTGRES_DB=testdb
+         - POSTGRES_PASSWORD=admin
+         - POSTGRES_USER=indychkov
+         - POSTGRES_DB=csaproject
     restart: unless-stopped
 # APP*****************************************
   springbootapp:
-    image: sacerdos/springbootapp:latest
+    image: sacerdos/csaspringbootapp:latest
     network_mode: bridge
     #container_name: springbootapp
     expose:
@@ -31,4 +31,4 @@ services:
     links:
       - postgres
 volumes:
-  pgdata:
+  postgresdata:

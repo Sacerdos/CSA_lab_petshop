@@ -14,29 +14,13 @@ public class Animal {
 
     @Column(name = "name", length = 64)
     private String name;
-    @Column(name= "kind", length = 32)
+    @Column(name= "kind", length = 64)
     private String kind;
-    @Column(name="price", length = 16, precision = 16, scale = 2)
+    @Column(name="price")
     private int price;
 
     public Animal() {
         super();
-    }
-
-    public Animal(int id, String name, String kind, int price) {
-        super();
-        this.id=id;
-        this.name = name;
-        this.kind = kind;
-        this.price = price;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {
